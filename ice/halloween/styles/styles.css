@@ -1,0 +1,67 @@
+/* Only CSS is changed for this assignment. */
+body {
+    background-color: #24152e;
+    color: #222;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+#wrapper {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff1d6;
+}
+
+header {
+    background-color: #e78323;
+    padding: 15px;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 5px 15px;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    color: #222;
+    text-align: center;
+}
+
+main img {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+section {
+    border-top: 1px solid #e78323;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #222;
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.5;
+}
+
+footer {
+    background-color: #e78323;
+    text-align: center;
+    padding: 15px;
+}
