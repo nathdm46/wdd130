@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Devotionals</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-image">
+                <h1>My Favorite<br>Devotionals</h1>
+            </div>
+        </header>
+        <main>
+            <div class="content-box">
+                <h2>Devotional Table</h2>
+                <table>
+                    <tr>
+                        <th scope="col">Speaker</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Year</th>
+                    </tr>
+                    <tr>
+                        <td>Henry B. Eyring</td>
+                        <td>A Steady, Upward Course</td>
+                        <td>BYU-Idaho</td>
+                        <td>2001</td>
+                    </tr>
+                    <tr>
+                        <td>David A. Bednar</td>
+                        <td>Line Upon Line, Precept Upon Precept</td>
+                        <td>BYU-Idaho</td>
+                        <td>2001</td>
+                    </tr>
+                    <tr>
+                        <td>Kevin G. Brown</td>
+                        <td>Hastening the Work in You</td>
+                        <td>BYU-Idaho</td>
+                        <td>2025</td>
+                    </tr>
+                </table>
+
+                <h2>Add a Devotional</h2>
+                <p>This practice form does not save entries.</p>
+                <form>
+                    <label for="speaker">Speaker:</label>
+                    <input type="text" id="speaker" name="speaker">
+
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title">
+
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location">
+
+                    <label for="year">Year:</label>
+                    <input type="number" id="year" name="year">
+
+                    <button type="button">Add Devotional</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
