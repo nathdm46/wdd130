@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Feed Sign Up</title>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; }
+        body { background: rgb(120, 96, 64); padding: 17px 12px 60px; font-family: "Times New Roman", serif; }
+        #formContainer { position: relative; max-width: 420px; margin: auto; border: 10px solid #153487; border-radius: 32px; overflow: hidden; background: white; }
+        .banner { height: 170px; background: url("images/jesus_feeds_5000.jpeg") center 42% / cover; display: grid; align-content: end; padding-bottom: 20px; text-align: center; color: white; text-shadow: 2px 2px 2px black; }
+        h1 { font-size: 36px; line-height: 1.1; }
+        .banner p { font-size: 30px; font-weight: bold; }
+        h2 { font-size: 20px; text-align: center; margin: 20px 10px; }
+        #myForm { display: grid; grid-template-columns: 1fr 170px; gap: 20px 12px; padding: 0 20px 20px; align-items: center; }
+        #myForm > input { width: 100%; min-width: 0; height: 22px; }
+        #closeBtn { position: absolute; top: 10px; left: 14px; padding: 2px 7px; font-size: 16px; }
+        fieldset { border: 0; padding: 0; display: contents; }
+        legend { float: left; }
+        .choices { white-space: nowrap; }
+        #myForm section { grid-column: 1 / -1; text-align: center; }
+        button { cursor: pointer; }
+        input:focus-visible, button:focus-visible { outline: 3px solid #153487; outline-offset: 2px; }
+        .scriptures { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; background: white; }
+        .scriptures img { width: 100%; height: 100px; object-fit: fill; }
+        #output { max-width: 420px; margin: 20px auto 0; }
+        #output:not(:empty) { background: white; padding: 20px; border-radius: 8px; overflow-wrap: anywhere; }
+        #output ul { padding: 12px 20px; }
+        @media (max-width: 420px) { #myForm { grid-template-columns: 1fr; gap: 8px; } #myForm > input { margin-bottom: 10px; } fieldset { display: block; } legend { float: none; margin-bottom: 8px; } .banner p { font-size: 26px; } }
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <div id="formContainer">
+        <header class="banner"><h1>Daily Feed</h1><p>Scripture a Day</p></header>
+        <h2>Sign Up for Daily Scripture Feed</h2>
+        <form id="myForm">
+            <button type="button" id="closeBtn" aria-label="Close signup form">X</button>
+            <label for="username">User Name:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <fieldset><legend>Gender:</legend>
+            <div class="choices">
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" required>
+                <label for="female">Female</label>
+            </div></fieldset>
+
+            <section>
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Subscribe to newsletter</label>
+            </section>
+
+            <section>
+                <input type="checkbox" id="conditions" name="conditions" required>
+                <label for="conditions">I acknowledge the terms and conditions</label>
+            </section>
+
+            <section>
+                <button type="submit">Submit</button>
+            </section>
+        </form>
+        <footer class="scriptures" aria-label="Scripture collections">
+            <img src="images/old_testament.webp" alt="Old Testament">
+            <img src="images/new_testament.webp" alt="New Testament">
+            <img src="images/book_of_mormon.webp" alt="Book of Mormon">
+            <img src="images/doctrine_and_covenants.webp" alt="Doctrine and Covenants">
+            <img src="images/pearl_of_great_price.webp" alt="Pearl of Great Price">
+        </footer>
+    </div>
+
+    <div id="output" role="status" aria-live="polite"></div>
+
+    <script>
+        // Here is some Javascript to start looking forward to wdd131
+        document.getElementById("closeBtn").addEventListener("click", function () {
+            document.getElementById("formContainer").style.display = "none";
+         });
+        const form = document.getElementById('myForm');
+        const output = document.getElementById('output');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Stop form from actually submitting
+
+            const heading = document.createElement('h3');
+            heading.textContent = 'Here is the data that would be sent to the server:';
+            const list = document.createElement('ul');
+            for (const [key, value] of new FormData(form).entries()) {
+                const item = document.createElement('li');
+                const label = document.createElement('strong');
+                label.textContent = key + ': ';
+                item.append(label, key === 'password' ? '•••••••• (hidden)' : value);
+                list.append(item);
+            }
+            output.replaceChildren(heading, list);
+                });
+    </script>
+
+</body>
+
+</html>
