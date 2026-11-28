@@ -1,14 +1,160 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Client Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A beginner's guide to outdoor survival skills and gear.">
+    <title>Survival Guide | Home</title>
+    <style>
+        :root {
+            --ink: #262626;
+            --paper: #e6e8e6;
+            --green: #659157;
+            --blue: #5b85aa;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font: 1.125rem/1.55 Calibri, "Segoe UI", Arial, sans-serif;
+        }
+
+        h1, h2 {
+            font-family: Gabriola, Georgia, serif;
+            line-height: 1.1;
+        }
+
+        header { border-bottom: 1px solid #bfc5bf; }
+
+        .top-bar, main {
+            width: min(100% - 2rem, 64rem);
+            margin-inline: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            padding-block: 0.75rem;
+        }
+
+        .brand, nav {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        a { color: inherit; }
+
+        .brand {
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .brand img { display: block; }
+
+        nav a {
+            padding: 0.4rem 0.6rem;
+            text-underline-offset: 0.25em;
+        }
+
+        a:focus-visible {
+            outline: 3px solid #295b83;
+            outline-offset: 3px;
+        }
+
+        main { padding-block: 1.5rem 2.5rem; }
+
+        .hero {
+            display: grid;
+            align-items: end;
+            overflow: hidden;
+            background: var(--ink);
+        }
+
+        .hero img, .hero h1 { grid-area: 1 / 1; }
+
+        .hero img {
+            display: block;
+            width: 100%;
+            height: clamp(16rem, 50vw, 30rem);
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            z-index: 1;
+            justify-self: end;
+            max-width: 24rem;
+            margin: 0;
+            padding: 1rem 1.25rem;
+            background: var(--ink);
+            color: white;
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+        }
+
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .topic {
+            padding: 1.25rem;
+            border-top: 0.3rem solid var(--green);
+            background: white;
+        }
+
+        #gear { border-color: var(--blue); }
+
+        .topic h2 {
+            margin: 0 0 0.5rem;
+            font-size: 1.6rem;
+        }
+
+        .topic p { margin: 0; }
+
+        @media (max-width: 34rem) {
+            .topics { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="top-bar">
+            <a class="brand" href="index.html">
+                <img src="logo.png" alt="" width="48" height="48">
+                Survival Guide
+            </a>
+            <nav aria-label="Main navigation">
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="#skills">Skills</a>
+                <a href="#gear">Gear</a>
+            </nav>
+        </div>
+    </header>
+
     <main>
-        <h1>Client Website</h1>
-        <p>This homepage is in progress.</p>
+        <section class="hero" aria-labelledby="home-title">
+            <img src="hero.jpg" alt="A grassy ridgeline surrounded by rocky mountains" width="970" height="612">
+            <h1 id="home-title">How to level up your survival skills</h1>
+        </section>
+
+        <div class="topics">
+            <section class="topic" id="skills">
+                <h2>Survival tips for dummies</h2>
+                <p>Start with three outdoor basics: finding safe drinking water, starting a fire, and building a shelter.</p>
+            </section>
+            <section class="topic" id="gear">
+                <h2>Gear recommendations</h2>
+                <p>See what to pack for fire starting, water purification, shelter, and navigation.</p>
+            </section>
+        </div>
     </main>
 </body>
 </html>
